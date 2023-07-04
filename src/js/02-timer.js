@@ -1,6 +1,7 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import { Report } from 'notiflix/build/notiflix-report-aio';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 let deadLineDate = null;
 
@@ -50,6 +51,7 @@ const timer = {
   },
   stop() {
     clearInterval(this.intervalId);
+    Notify.failure(`❌ Sorry, but time is up!`);
     // Так буде працювати без перезавантаження але тільки коли таймер стане 0!
     // inputFromDateRef.disabled = false;
   },

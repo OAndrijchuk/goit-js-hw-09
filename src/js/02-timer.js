@@ -75,14 +75,11 @@ const timer = {
   addLeadingZero(value) {
     return String(value).padStart(2, 0);
   },
-  drawTime({ days, hours, minutes, seconds }) {
-    document.querySelector('[data-days]').textContent =
-      this.addLeadingZero(days);
-    document.querySelector('[data-hours]').textContent =
-      this.addLeadingZero(hours);
-    document.querySelector('[data-minutes]').textContent =
-      this.addLeadingZero(minutes);
-    document.querySelector('[data-seconds]').textContent =
-      this.addLeadingZero(seconds);
+  drawTime(obj) {
+    Object.keys(obj).forEach(
+      el =>
+        (document.querySelector(`[data-${el}]`).textContent =
+          this.addLeadingZero(obj[el]))
+    );
   },
 };
